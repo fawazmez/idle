@@ -16,18 +16,18 @@ centerY = display.contentHeight * .5
 local sheetOptionsIdle =
 {
     width = 587,
-    height = 707,
-    numFrames = 5
+    height = 556,
+    numFrames = 10
 }
-local sheetIdlerobot = graphics.newImageSheet( "./assets/spritesheets/robotIdle.png", sheetOptionsIdle )
+local sheetIdleKnight = graphics.newImageSheet( "./assets/spritesheets/knightIdle.png", sheetOptionsIdle )
 
 local sheetOptionsWalk =
 {
-    width = 587,
-    height = 707,
-    numFrames = 5
+    width = 567,
+    height = 556,
+    numFrames = 8
 }
-local sheetWalkingrobot = graphics.newImageSheet( "./assets/spritesheets/robotWalking.png", sheetOptionsWalk )
+local sheetWalkingKnight = graphics.newImageSheet( "./assets/spritesheets/knightWalking.png", sheetOptionsWalk )
 
 
 -- sequences table
@@ -39,7 +39,7 @@ local sequence_data = {
         count = 10,
         time = 800,
         loopCount = 0,
-        sheet = sheetIdlerobot
+        sheet = sheetIdleKnight
     },
     {
         name = "walk",
@@ -47,13 +47,13 @@ local sequence_data = {
         count = 10,
         time = 800,
         loopCount = 0,
-        sheet = sheetWalkingrobot
+        sheet = sheetWalkingKnight
     }
 }
 
-local knight = display.newSprite( sheetIdlerobot, sequence_data )
-robot.x = centerX
-robot.y = centerY
+local knight = display.newSprite( sheetIdleKnight, sequence_data )
+knight.x = centerX
+knight.y = centerY
 
 knight:play()
 
@@ -63,3 +63,5 @@ local function swapSheet()
     knight:play()
     print("walk")
 end
+
+timer.performWithDelay( 2000, swapSheet )
