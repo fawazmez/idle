@@ -15,19 +15,19 @@ centerY = display.contentHeight * .5
 
 local sheetOptionsIdle =
 {
-    width = 587,
-    height = 556,
+    width = 536,
+    height = 495,
     numFrames = 10
 }
-local sheetIdleKnight = graphics.newImageSheet( "./assets/spritesheets/knightIdle.png", sheetOptionsIdle )
+local ninjaBoyAttack = graphics.newImageSheet( "./assets/spritesheets/ninjaBoyAttack.png", sheetOptionsIdle )
 
 local sheetOptionsWalk =
 {
-    width = 567,
-    height = 556,
-    numFrames = 8
+    width = 363,
+    height = 458,
+    numFrames = 10
 }
-local sheetWalkingKnight = graphics.newImageSheet( "./assets/spritesheets/knightWalking.png", sheetOptionsWalk )
+local sheetWalkingKnight = graphics.newImageSheet( "./assets/spritesheets/ninjaBoyJumpRun.png", sheetOptionsWalk )
 
 
 -- sequences table
@@ -39,7 +39,7 @@ local sequence_data = {
         count = 10,
         time = 800,
         loopCount = 0,
-        sheet = sheetIdleKnight
+        sheet = ninjaBoyAttack
     },
     {
         name = "walk",
@@ -47,20 +47,20 @@ local sequence_data = {
         count = 10,
         time = 800,
         loopCount = 0,
-        sheet = sheetWalkingKnight
+        sheet = ninjaBoyJumpRun
     }
 }
 
-local knight = display.newSprite( sheetIdleKnight, sequence_data )
-knight.x = centerX
-knight.y = centerY
+local ninja = display.newSprite( ninjaBoyAttack, sequence_data )
+ninja.x = centerX
+ninja.y = centerY
 
-knight:play()
+ninja:play()
 
--- After a short time, swap the sequence to 'seq2' which uses the second image sheet
+--After a short time, swap the sequence to 'seq2' which uses the second image sheet
 local function swapSheet()
-    knight:setSequence( "walk" )
-    knight:play()
+    ninja:setSequence( "walk" )
+    ninja:play()
     print("walk")
 end
 
